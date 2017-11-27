@@ -143,8 +143,6 @@ module.exports = function(
   // Change displayed command to yarn instead of yarnpkg
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
-  // TODO Move ../config/ignoredFiles.js to app's node_modules/react-dev-utils folder
-
   console.log();
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log();

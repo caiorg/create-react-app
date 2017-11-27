@@ -10,7 +10,6 @@
 
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
-const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const config = require('./webpack.config.dev');
 const paths = require('./paths');
 
@@ -71,13 +70,6 @@ module.exports = function(proxy, allowedHost) {
     // WebpackDevServer is noisy by default so we emit custom message instead
     // by listening to the compiler events with `compiler.plugin` calls above.
     quiet: true,
-    // Reportedly, this avoids CPU overload on some systems.
-    // https://github.com/facebookincubator/create-react-app/issues/293
-    // src/node_modules is not ignored to support absolute imports
-    // https://github.com/facebookincubator/create-react-app/issues/1065
-    watchOptions: {
-      ignored: ignoredFiles(paths.appSrc),
-    },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === 'https',
     host: host,
