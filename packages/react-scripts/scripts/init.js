@@ -143,8 +143,26 @@ module.exports = function(
   // Change displayed command to yarn instead of yarnpkg
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
+  // TODO Move ../config/ignoredFiles.js to app's node_modules/react-dev-utils folder
+
   console.log();
   console.log(`Success! Created ${appName} at ${appPath}`);
+  console.log();
+  console.log(chalk.red('VERY IMPORTANT:'));
+  console.log(
+    'Please define any environment variable that you wish to use in your app (in other words, to expose them to your app)'
+  );
+  console.log(
+    `in the ${chalk.cyan(
+      '.env.example'
+    )} file at the root of your project and rename it to .env (remove the ".example" portion)`
+  );
+  console.log(
+    `NOTE: You have to use the ${chalk.cyan(
+      'REACT_APP_'
+    )} preffix in order to expose correctly your environment variables.`
+  );
+  console.log();
   console.log('Inside that directory, you can run several commands:');
   console.log();
   console.log(chalk.cyan(`  ${displayedCommand} start`));
